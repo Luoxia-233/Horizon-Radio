@@ -4,7 +4,7 @@
 
 - [x] 确定技术栈（Java 17 + JavaFX + Gradle + JUnit 5）
 - [x] Issue #004 — 音频后端技术调研 → 选定 JavaFX MediaPlayer
-- [ ] Issue #001 — 初始化工程
+- [x] Issue #001 — 初始化工程 → Gradle 项目已建立
 
 ## MVP (v0.1)
 
