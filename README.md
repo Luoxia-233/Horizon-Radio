@@ -57,7 +57,7 @@
 | 语言 | Java 17 |
 | UI | JavaFX |
 | 构建 | Gradle |
-| 音频 | 待定（调研中） |
+| 音频 | JavaFX MediaPlayer |
 
 技术选型决策记录：[ADR-001](./docs/adr/001-tech-stack.md)
 
