@@ -10,7 +10,28 @@
 
 ## 快速开始
 
-> 开发环境与构建指南将在 MVP 开发阶段补充。
+### 环境要求
+
+- JDK 17 (LTS)
+- （Gradle 通过 Wrapper 自动下载）
+
+### 构建
+
+```bash
+./gradlew build
+```
+
+### 运行
+
+```bash
+./gradlew run
+```
+
+### 测试
+
+```bash
+./gradlew test
+```
 
 ## 项目文档
 
