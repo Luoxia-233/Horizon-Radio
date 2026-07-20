@@ -138,7 +138,13 @@ docs/issues/ 目录下当前正在进行的 Issue
 
 - Gradle 管理依赖
 - 新增第三方库必须经过 Level 2 审批流程
-- 音频后端方案待 Issue #004 调研确定
+- 音频后端方案已确定（JavaFX MediaPlayer，见 ADR-002）
+
+### 环境配置约束
+
+- Gradle User Home: `D:\Computer\Java\Gradle`（环境变量 `GRADLE_USER_HOME`）
+- 所有项目需要额外下载的组件、程序、SDK 等，在确保正常使用的前提下均安装至 `D:\Computer\Java\`
+- 不得将开发环境组件安装至 C 盘
 
 ### 常用命令
 
