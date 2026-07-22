@@ -16,6 +16,6 @@
 - [x] #001 初始化工程
 - [x] #002 创建 Song 数据模型
 - [x] #003 实现 MusicLibrary（递归扫描 + 格式过滤）
-- [x] #005 实现 IAudioEngine 接口 + JavaFXAudioEngine
+- [x] #006 PlaylistQueue（顺序/随机/循环/模式切换不中断当前）
 - [ ] 主持语音插播
 - [ ] 状态机管理
