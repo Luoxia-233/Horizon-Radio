@@ -6,6 +6,8 @@
 
 Horizon Radio 是一个 Windows 本地音乐播放器，核心特色是模拟《极限竞速：地平线》系列的电台听感——在切歌时自动插入电台主持人语音。
 
+> **所有开发任务均需遵循 [`docs/agent/LEARNING_MODE.md`](docs/agent/LEARNING_MODE.md) 的协作规范。**
+
 ---
 
 ## Agent 权限分级
