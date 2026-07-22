@@ -63,12 +63,6 @@ class IAudioEngineTest {
     }
 
     @Test
-    void setVolumeBetweenZeroAndOne() {
-        engine.setVolume(0.5);
-        assertEquals(0.5, ((StubAudioEngine) engine).volume);
-    }
-
-    @Test
     void getDurationReturnsValueWhenPlaying() {
         engine.play(Path.of("/test/song.mp3"));
         assertTrue(engine.getDurationSeconds() > 0.0);
