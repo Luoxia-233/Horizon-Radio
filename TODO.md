@@ -10,7 +10,7 @@
 
 ### 数据层
 - [x] Issue #002 — 创建 Song 数据模型
-- [ ] Issue #003 — 实现 MusicLibrary
+- [x] Issue #003 — 实现 MusicLibrary
 
 ### 音频层
 - [ ] Issue #005 — 实现基础音频播放器
