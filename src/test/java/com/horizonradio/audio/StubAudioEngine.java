@@ -5,32 +5,20 @@ import java.nio.file.Path;
 class StubAudioEngine implements IAudioEngine {
 
     boolean playing;
-    boolean stopped;
-    boolean paused;
-    Path lastPlayedPath;
-    double volume = 1.0;
 
     @Override
     public void play(Path filePath) {
-        this.lastPlayedPath = filePath;
         this.playing = true;
-        this.stopped = false;
-        this.paused = false;
     }
 
     @Override
     public void pause() {
-        if (playing) {
-            this.playing = false;
-            this.paused = true;
-        }
+        this.playing = false;
     }
 
     @Override
     public void stop() {
         this.playing = false;
-        this.stopped = true;
-        this.paused = false;
     }
 
     @Override
@@ -50,6 +38,5 @@ class StubAudioEngine implements IAudioEngine {
 
     @Override
     public void setVolume(double volume) {
-        this.volume = volume;
     }
 }
