@@ -8,6 +8,8 @@ Horizon Radio 是一个 Windows 本地音乐播放器，核心特色是模拟《
 
 > **所有开发任务均需遵循 [`docs/agent/LEARNING_MODE.md`](docs/agent/LEARNING_MODE.md) 的协作规范。**
 
+> **所有 Issue 进入编码前需完成 [`docs/agent/ISSUE_WORKFLOW.md`](docs/agent/ISSUE_WORKFLOW.md) 中 Step 0-3 的讨论与确认流程。**
+
 ---
 
 ## Agent 权限分级
