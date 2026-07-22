@@ -9,7 +9,7 @@
 ## MVP (v0.1)
 
 ### 数据层
-- [ ] Issue #002 — 创建 Song 数据模型
+- [x] Issue #002 — 创建 Song 数据模型
 - [ ] Issue #003 — 实现 MusicLibrary
 
 ### 音频层
