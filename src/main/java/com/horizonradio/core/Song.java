@@ -2,12 +2,12 @@ package com.horizonradio.core;
 
 import java.nio.file.Path;
 
-public record Song(String title, String artist, String filePath, long durationMs) {
+public record Song(String title, String artist, Path filePath, long durationMs) {
 
     public static Song fromFile(Path path) {
         String fileName = path.getFileName().toString();
         String title = stripExtension(fileName);
-        return new Song(title, "Unknown Artist", path.toString(), 0L);
+        return new Song(title, "Unknown Artist", path, 0L);
     }
 
     private static String stripExtension(String fileName) {
