@@ -11,10 +11,6 @@ class StubPlayerController implements PlayerController {
 
     PlayerState state = PlayerState.IDLE;
     boolean shuffle;
-    boolean playCalled;
-    boolean pauseCalled;
-    boolean nextCalled;
-    boolean previousCalled;
     private final List<Song> songs;
 
     StubPlayerController() {
@@ -25,25 +21,21 @@ class StubPlayerController implements PlayerController {
 
     @Override
     public void play() {
-        playCalled = true;
         state = PlayerState.PLAYING;
     }
 
     @Override
     public void pause() {
-        pauseCalled = true;
         state = PlayerState.PAUSED;
     }
 
     @Override
     public void next() {
-        nextCalled = true;
         state = PlayerState.TRANSITION;
     }
 
     @Override
     public void previous() {
-        previousCalled = true;
         state = PlayerState.TRANSITION;
     }
 
@@ -70,5 +62,9 @@ class StubPlayerController implements PlayerController {
     @Override
     public Song getCurrentSong() {
         return songs.get(0);
+    }
+
+    @Override
+    public void setMusicDirectory(Path directory) {
     }
 }

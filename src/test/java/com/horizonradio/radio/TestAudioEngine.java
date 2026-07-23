@@ -43,4 +43,8 @@ class TestAudioEngine implements IAudioEngine {
     @Override
     public void setVolume(double volume) {
     }
+
+    @Override
+    public void setOnEnded(Runnable callback) {
+    }
 }

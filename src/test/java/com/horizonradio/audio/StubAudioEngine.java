@@ -6,6 +6,8 @@ class StubAudioEngine implements IAudioEngine {
 
     boolean playing;
 
+    private Runnable onEnded;
+
     @Override
     public void play(Path filePath) {
         this.playing = true;
@@ -38,5 +40,10 @@ class StubAudioEngine implements IAudioEngine {
 
     @Override
     public void setVolume(double volume) {
+    }
+
+    @Override
+    public void setOnEnded(Runnable callback) {
+        this.onEnded = callback;
     }
 }

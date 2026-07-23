@@ -12,14 +12,22 @@ public class JavaFXAudioEngine implements IAudioEngine {
 
     private MediaPlayer mediaPlayer;
     private double volume = DEFAULT_VOLUME;
+    private Runnable onEndedCallback;
 
     @Override
     public void play(Path filePath) {
+        if (mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED) {
+            mediaPlayer.play();
+            return;
+        }
         disposeCurrentPlayer();
         String uri = filePath.toUri().toString();
         Media media = new Media(uri);
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setVolume(volume);
+        if (onEndedCallback != null) {
+            mediaPlayer.setOnEndOfMedia(onEndedCallback);
+        }
         mediaPlayer.play();
     }
 
@@ -66,6 +74,14 @@ public class JavaFXAudioEngine implements IAudioEngine {
         this.volume = Math.max(0.0, Math.min(1.0, volume));
         if (mediaPlayer != null) {
             mediaPlayer.setVolume(this.volume);
+        }
+    }
+
+    @Override
+    public void setOnEnded(Runnable callback) {
+        this.onEndedCallback = callback;
+        if (mediaPlayer != null) {
+            mediaPlayer.setOnEndOfMedia(callback);
         }
     }
 

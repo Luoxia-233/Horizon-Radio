@@ -3,6 +3,7 @@ package com.horizonradio.player;
 import com.horizonradio.core.PlayerState;
 import com.horizonradio.core.Song;
 
+import java.nio.file.Path;
 import java.util.List;
 
 public interface PlayerController {
@@ -16,4 +17,5 @@ public interface PlayerController {
     PlayerState getState();
     List<Song> getSongs();
     Song getCurrentSong();
+    void setMusicDirectory(Path directory);
 }

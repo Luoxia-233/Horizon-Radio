@@ -27,7 +27,7 @@
 - [x] Issue #010 — 实现播放列表 UI
 
 ### 组装
-- [ ] Issue #011 — Player Controller 组装 (MVP 完成)
+- [x] Issue #011 — Player Controller 组装 (MVP 完成)
 
 ---
 

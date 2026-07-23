@@ -17,4 +17,6 @@ public interface IAudioEngine {
     double getDurationSeconds();
 
     void setVolume(double volume);
+
+    void setOnEnded(Runnable callback);
 }

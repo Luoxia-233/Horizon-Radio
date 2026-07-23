@@ -111,6 +111,7 @@ public class MainWindow {
         chooser.setTitle("选择音乐目录");
         File dir = chooser.showDialog(null);
         if (dir != null) {
+            controller.setMusicDirectory(dir.toPath());
             refresh();
         }
     }
