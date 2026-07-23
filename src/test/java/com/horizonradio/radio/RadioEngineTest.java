@@ -52,12 +52,10 @@ class RadioEngineTest {
     }
 
     @Test
-    void onVoiceEndedCallbackCanBeSet() {
+    void onVoiceEndedCanBeCalled() {
         RadioEngine engine = new RadioEngine(eventBus, audioEngine, voiceManager);
-        boolean[] called = {false};
-        engine.setOnVoiceEnded(() -> called[0] = true);
+        engine.start();
 
-        // callback is stored but not triggered yet (needs onEnded on IAudioEngine)
-        assertNotNull(engine);
+        assertDoesNotThrow(engine::onVoiceEnded);
     }
 }

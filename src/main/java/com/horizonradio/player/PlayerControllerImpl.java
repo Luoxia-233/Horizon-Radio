@@ -34,11 +34,12 @@ public class PlayerControllerImpl implements PlayerController {
                 }
                 stateMachine.goTo(PlayerState.TRANSITION);
                 stateMachine.goTo(PlayerState.VOICE_PLAYING);
+                if (!audioEngine.isPlaying()) {
+                    startNextSong();
+                }
             } else if (stateMachine.current() == PlayerState.VOICE_PLAYING) {
-                Song next = queue.next();
-                currentFilePath = next.filePath();
-                audioEngine.play(currentFilePath);
-                stateMachine.goTo(PlayerState.PLAYING);
+                radioEngine.onVoiceEnded();
+                startNextSong();
             }
         });
 
@@ -76,9 +77,12 @@ public class PlayerControllerImpl implements PlayerController {
         audioEngine.stop();
         Song song = queue.next();
         currentFilePath = song.filePath();
-        stateMachine.goTo(PlayerState.TRANSITION);
-        eventBus.publish(new SongChanged(song, true));
-        stateMachine.goTo(PlayerState.VOICE_PLAYING);
+        if (stateMachine.current() == PlayerState.VOICE_PLAYING) {
+            radioEngine.onVoiceEnded();
+            startPlayingCurrent();
+        } else {
+            transitionToVoice(song, true);
+        }
     }
 
     @Override
@@ -90,9 +94,38 @@ public class PlayerControllerImpl implements PlayerController {
         audioEngine.stop();
         Song song = queue.previous();
         currentFilePath = song.filePath();
+        if (stateMachine.current() == PlayerState.VOICE_PLAYING) {
+            radioEngine.onVoiceEnded();
+            startPlayingCurrent();
+        } else {
+            transitionToVoice(song, true);
+        }
+    }
+
+    private void transitionToVoice(Song song, boolean manual) {
         stateMachine.goTo(PlayerState.TRANSITION);
-        eventBus.publish(new SongChanged(song, true));
+        eventBus.publish(new SongChanged(song, manual));
         stateMachine.goTo(PlayerState.VOICE_PLAYING);
+        if (!audioEngine.isPlaying()) {
+            startPlayingCurrent();
+        }
+    }
+
+    private void startPlayingCurrent() {
+        Song song = queue.current();
+        if (song != null) {
+            audioEngine.play(currentFilePath);
+            stateMachine.goTo(PlayerState.PLAYING);
+        }
+    }
+
+    private void startNextSong() {
+        Song next = queue.next();
+        if (next != null) {
+            currentFilePath = next.filePath();
+            audioEngine.play(currentFilePath);
+            stateMachine.goTo(PlayerState.PLAYING);
+        }
     }
 
     @Override

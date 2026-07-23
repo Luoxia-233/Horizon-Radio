@@ -20,6 +20,7 @@ build/
 *.jar
 *.war
 !gradle/wrapper/gradle-wrapper.jar
+bin/
 
 # OS
 Thumbs.db
@@ -29,6 +30,9 @@ Desktop.ini
 # Distribution
 out/
 dist/
+
+# Assets (large binary files)
+assets/voice/
 
 # Secrets
 *.pem

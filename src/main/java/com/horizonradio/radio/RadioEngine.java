@@ -11,7 +11,6 @@ public class RadioEngine {
     private final EventBus eventBus;
     private final IAudioEngine audioEngine;
     private final VoiceManager voiceManager;
-    private Runnable onVoiceEnded;
 
     public RadioEngine(EventBus eventBus, IAudioEngine audioEngine, VoiceManager voiceManager) {
         this.eventBus = eventBus;
@@ -23,8 +22,7 @@ public class RadioEngine {
         eventBus.subscribe(SongChanged.class, this::onSongChanged);
     }
 
-    public void setOnVoiceEnded(Runnable callback) {
-        this.onVoiceEnded = callback;
+    public void onVoiceEnded() {
     }
 
     private void onSongChanged(SongChanged event) {

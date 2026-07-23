@@ -18,11 +18,13 @@ import java.util.List;
 
 public class Main extends Application {
 
+    private static final Path VOICE_DIR = Path.of("assets/voice");
+
     @Override
     public void start(Stage primaryStage) {
         EventBus eventBus = new EventBus();
         IAudioEngine audioEngine = new JavaFXAudioEngine();
-        VoiceManager voiceManager = new VoiceManager(Path.of("assets/voice"));
+        VoiceManager voiceManager = new VoiceManager(VOICE_DIR);
         try {
             voiceManager.scan();
         } catch (RuntimeException e) {

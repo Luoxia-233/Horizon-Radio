@@ -1,18 +1,16 @@
 package com.horizonradio.radio;
 
+import com.horizonradio.core.AudioFormat;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
 public class VoiceManager {
-
-    private static final Set<String> AUDIO_EXTENSIONS = Set.of(
-            ".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a"
-    );
 
     private final Path directory;
     private List<Path> voiceFiles;
@@ -26,7 +24,7 @@ public class VoiceManager {
         List<Path> result = new ArrayList<>();
         try (Stream<Path> files = Files.walk(directory)) {
             files.filter(Files::isRegularFile)
-                 .filter(this::isAudioFile)
+                 .filter(AudioFormat::isAudioFile)
                  .forEach(result::add);
         } catch (IOException e) {
             throw new RuntimeException("Failed to scan voice directory: " + directory, e);
@@ -38,21 +36,11 @@ public class VoiceManager {
         if (voiceFiles.isEmpty()) {
             return null;
         }
-        int index = (int) (Math.random() * voiceFiles.size());
+        int index = ThreadLocalRandom.current().nextInt(voiceFiles.size());
         return voiceFiles.get(index);
     }
 
     public int count() {
         return voiceFiles.size();
-    }
-
-    private boolean isAudioFile(Path path) {
-        String name = path.getFileName().toString().toLowerCase();
-        for (String ext : AUDIO_EXTENSIONS) {
-            if (name.endsWith(ext)) {
-                return true;
-            }
-        }
-        return false;
     }
 }
