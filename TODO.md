@@ -21,7 +21,7 @@
 
 ### 事件与电台
 - [x] Issue #008 — 实现事件系统
-- [ ] Issue #009 — 实现 RadioEngine 框架
+- [x] Issue #009 — 实现 RadioEngine 框架
 
 ### UI
 - [ ] Issue #010 — 实现播放列表 UI
