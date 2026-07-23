@@ -1,44 +1,54 @@
-# 待办事项
+# 实验任务
 
-## 当前阶段：技术准备
+> 以下任务面向技术实验与学习，非产品需求。
 
-- [x] 确定技术栈（Java 17 + JavaFX + Gradle + JUnit 5）
-- [x] Issue #004 — 音频后端技术调研 → 选定 JavaFX MediaPlayer
-- [x] Issue #001 — 初始化工程 → Gradle 项目已建立
-
-## MVP (v0.1)
+## 已完成：Phase 1 — JavaFX MVP
 
 ### 数据层
-- [x] Issue #002 — 创建 Song 数据模型
-- [x] Issue #003 — 实现 MusicLibrary
+- [x] Issue #002 — [实验] Java record 作为数据模型
+- [x] Issue #003 — [实验] File I/O 目录扫描
 
 ### 音频层
-- [x] Issue #005 — 实现基础音频播放器
+- [x] Issue #004 — [实验] Java 音频后端调研
+- [x] Issue #005 — [实验] 接口抽象 + JavaFX MediaPlayer 实现
 
 ### 播放层
-- [x] Issue #006 — 实现播放队列
-- [x] Issue #007 — 实现播放器状态机
+- [x] Issue #006 — [实验] 顺序/随机队列算法 + 模式切换
+- [x] Issue #007 — [实验] 状态机模式验证
 
 ### 事件与电台
-- [x] Issue #008 — 实现事件系统
-- [x] Issue #009 — 实现 RadioEngine 框架
+- [x] Issue #008 — [实验] 泛型事件总线 + 类型安全订阅
+- [x] Issue #009 — [实验] 事件驱动 + 构造注入解耦
 
 ### UI
-- [x] Issue #010 — 实现播放列表 UI
+- [x] Issue #010 — [实验] JavaFX UI + PlayerController 接口契约
 
 ### 组装
-- [x] Issue #011 — Player Controller 组装 (MVP 完成)
+- [x] Issue #011 — [实验] 多模块集成 + 端到端流程验证
 
 ---
 
-## 语音素材管理
+## 待完成
 
-- [ ] 录制 / 准备 voice 素材
+### Phase 2: Audio Fade
+
+- [ ] [实验] JavaFX Timeline 驱动 Fade Out
+- [ ] [实验] Timeline 驱动 Fade In
+- [ ] [实验] 语音与音乐衔接时序
+
+### Phase 3: Audio Ducking
+
+- [ ] [实验] 双 MediaPlayer 独立音量控制
+- [ ] [实验] Ducking 平滑过渡
+
+### Phase 4: Architecture Refactor
+
+- [ ] [实验] Audio Engine 实现替换（VLCJ 试配）
+- [ ] [实验] RadioEngine 规则配置化
+
+---
+
+## 素材准备
+
+- [ ] 录制 / 准备 voice 实验素材
 - [ ] 按类别组织：intro / transition / station_id
-
----
-
-## 技术调研
-
-- [x] 技术栈决策 (ADR-001)
-- [x] 音频后端调研 (Issue #004) → ADR-002: JavaFX MediaPlayer

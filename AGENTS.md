@@ -4,11 +4,21 @@
 
 ## 项目概述
 
-Horizon Radio 是一个 Windows 本地音乐播放器，核心特色是模拟《极限竞速：地平线》系列的电台听感——在切歌时自动插入电台主持人语音。
+Horizon Radio Lab 是一个实验与学习仓库，用于验证 Agent 协作开发、Java/JavaFX、软件架构和工程实践。不作为最终产品。
 
 > **所有开发任务均需遵循 [`docs/agent/LEARNING_MODE.md`](docs/agent/LEARNING_MODE.md) 的协作规范。**
 
 > **所有 Issue 进入编码前需完成 [`docs/agent/ISSUE_WORKFLOW.md`](docs/agent/ISSUE_WORKFLOW.md) 中 Step 0-3 的讨论与确认流程。**
+
+---
+
+## Lab First Principle
+
+对于 Lab 仓库，优先验证技术路线、架构设计和 Agent 协作方式，而不是追求功能完整性或产品完成度。
+
+- 允许实验、重构和推翻已有实现
+- 保留清晰的文档和 Git 历史以记录决策过程和学习成果
+- 判断标准："这个实验让我学到了什么？"而非"这个功能完整吗？"
 
 ---
 

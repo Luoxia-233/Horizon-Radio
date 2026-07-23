@@ -1,8 +1,10 @@
 # 变更日志
 
+> 本记录属于 Horizon Radio Lab 阶段。未来正式产品将从新仓库开始。
+
 ## [Unreleased]
 
-### 2026-07-20 — 工程初始化
+### 2026-07-20 — 实验：工程初始化
 
 - Issue #001 完成 — Gradle 项目建立、包结构创建、JavaFX 入口
 - 文档体系建立 (README / ARCHITECTURE / ROADMAP / AGENTS / TODO / CHANGELOG / BUGS / IDEAS)
