@@ -23,6 +23,11 @@ public class Main extends Application {
         EventBus eventBus = new EventBus();
         IAudioEngine audioEngine = new JavaFXAudioEngine();
         VoiceManager voiceManager = new VoiceManager(Path.of("assets/voice"));
+        try {
+            voiceManager.scan();
+        } catch (RuntimeException e) {
+            System.out.println("Voice directory not found, voice playback disabled.");
+        }
         RadioEngine radioEngine = new RadioEngine(eventBus, audioEngine, voiceManager);
         PlaylistQueue queue = new PlaylistQueue(List.of());
         PlayerController controller = new PlayerControllerImpl(audioEngine, queue, radioEngine, eventBus);

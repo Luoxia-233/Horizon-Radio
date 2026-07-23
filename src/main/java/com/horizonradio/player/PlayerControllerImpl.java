@@ -26,17 +26,12 @@ public class PlayerControllerImpl implements PlayerController {
         this.radioEngine = radioEngine;
         this.songs = List.of();
 
-        stateMachine.onChange((oldState, newState) -> {
-            if (oldState == PlayerState.PLAYING && newState == PlayerState.TRANSITION) {
+        audioEngine.setOnEnded(() -> {
+            if (stateMachine.current() == PlayerState.PLAYING) {
                 Song current = queue.current();
                 if (current != null) {
                     eventBus.publish(new SongChanged(current, false));
                 }
-            }
-        });
-
-        audioEngine.setOnEnded(() -> {
-            if (stateMachine.current() == PlayerState.PLAYING) {
                 stateMachine.goTo(PlayerState.TRANSITION);
                 stateMachine.goTo(PlayerState.VOICE_PLAYING);
             } else if (stateMachine.current() == PlayerState.VOICE_PLAYING) {
