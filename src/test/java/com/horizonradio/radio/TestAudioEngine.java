@@ -1,9 +1,6 @@
 package com.horizonradio.radio;
 
 import com.horizonradio.audio.IAudioEngine;
-import com.horizonradio.core.EventBus;
-import com.horizonradio.core.Song;
-import com.horizonradio.core.SongChanged;
 
 import java.nio.file.Path;
 

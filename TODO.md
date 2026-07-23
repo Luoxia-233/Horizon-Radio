@@ -24,7 +24,7 @@
 - [x] Issue #009 — 实现 RadioEngine 框架
 
 ### UI
-- [ ] Issue #010 — 实现播放列表 UI
+- [x] Issue #010 — 实现播放列表 UI
 
 ### 组装
 - [ ] Issue #011 — Player Controller 组装 (MVP 完成)
