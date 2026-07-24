@@ -54,13 +54,13 @@ Agent **不替代**以下决策：
 
 ### Level 2 — 需先说明方案
 
-以下操作 Agent 必须在执行前输出方案并等待确认：
+以下操作 Agent 必须在执行前输出方案并等待确认（按影响范围判断，非文件数量）：
 
-- 添加第三方依赖（NuGet / npm / Cargo 等）
+- 添加第三方依赖
 - 修改已有公共接口（interface / abstract class / public API）
-- 修改或创建配置结构（settings.json / playlist.json / metadata.db 等）
+- 修改模块职责或改变依赖方向
+- 修改或创建数据格式 / 配置结构
 - 移动文件或改变目录结构
-- 一次修改超过 3 个模块
 
 ### Level 3 — 必须询问
 
@@ -71,6 +71,51 @@ Agent **不替代**以下决策：
 - 大规模重构（超过 5 个文件、超过 300 行）
 - 删除大量代码（超过 50 行连续删除）
 - 修改 ARCHITECTURE.md / ROADMAP.md / README 中的项目目标
+
+---
+
+## Git 权限分级
+
+push 意味着把历史公开，**永远由人执行**。
+
+### Git Level 1 — 自动允许
+
+- `git status`
+- `git diff`
+- `git add`
+- `git rm --cached`
+- 生成 Commit Message
+
+### Git Level 2 — 确认后执行
+
+- `git commit`（Agent 生成 message，用户确认后执行）
+
+### Git Level 3 — 禁止自动执行
+
+- `git push`
+- `git merge`
+- `git rebase`
+- `git reset --hard`
+- `git tag`
+- 删除分支
+
+### 提交工作流
+
+```
+Agent 修改代码 → 运行测试 → 输出修改摘要
+      │
+      ▼
+用户阅读代码并验证
+      │
+      ▼
+Agent 生成 Commit Message
+      │
+      ▼
+用户确认 → Agent 执行 git commit
+      │
+      ▼
+用户决定何时 git push
+```
 
 ---
 
@@ -232,6 +277,18 @@ docs/issues/ 目录下当前正在进行的 Issue
 
 ---
 
+## Code Review 检查清单
+
+每个 Issue 实现完成后，Agent 需输出以下检查结果：
+
+- [ ] 是否违反模块职责？
+- [ ] 是否新增不必要的抽象？
+- [ ] 是否存在重复逻辑？
+- [ ] 是否易于测试？
+- [ ] 符合已有代码风格？
+
+---
+
 ## Definition of Done
 
 每个 Issue 完成必须满足：
@@ -241,9 +298,11 @@ docs/issues/ 目录下当前正在进行的 Issue
 - [ ] 已完成测试（如有测试框架）
 - [ ] 更新 CHANGELOG.md
 - [ ] 更新 TODO.md（将对应项标记完成）
-- [ ] 提交 Git Commit
+- [ ] 输出 Code Review 检查清单
+- [ ] Agent 生成 Commit Message，等用户确认后提交
 - [ ] 不遗留 TODO / FIXME 注释
 - [ ] 未超出 Issue 定义的范围
+- [ ] **git push 由用户亲自执行**
 
 ---
 
